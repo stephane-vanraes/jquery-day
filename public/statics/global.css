@@ -1,0 +1,34 @@
+:root {
+  --primary: #1e3888;
+  --primary-light: #47a8bd;
+  --secondary: #f5e663;
+  --secondary-light: #f6ea7f;
+  --secondary-dark: #c9bd52;
+  --accent: #9c3848;
+  --accent-dark: #802e3b;
+  --accent-light: #ae5c69;
+}
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  color: inherit;
+  font-family: "Courier Prime", monospace;
+  line-height: 1.25em;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: var(--secondary);
+}
+
+wrapper {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+}
