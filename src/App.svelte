@@ -34,5 +34,16 @@
             <Library {...lib} />
         {/each}
     </Grid>
+    
+    <section>
+        <h2>Why this list?</h2>
+        <p>During discussion with other developers it is often mentioned that at "least we do not live in the dark days of jquery anymore", but those days have been long over with JQuery being replaced by frameworks like those in this list.  Often people still remember how relieved they were when those frameworks were released and they no loner had to rely on JQuery.  What they do not seem to realize however is how long we have had some of these compared to how long we had to suffer from JQuery.</p>
+    </section>
+    <section>
+        <h2>Disclaimer</h2>
+        <p>This site has no intention whatsoever to pass judgement on any of the frameworks or libraries mentioned but is purely made to put certain things in perspective.</p>
+        <p>For those interested, the site is made in Svelte.</p>
+    </section>
 </main>
+
 <Footer />
