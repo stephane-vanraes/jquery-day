@@ -69,7 +69,7 @@
   <div class="details">
     <span>Released</span>
     <span>{format(date)}</span>
-    <span>JQuery Date</span>
+    <span>JQuery Day</span>
     <span>{format(jdate)}</span>
   </div>
 </div>
