@@ -37,9 +37,7 @@
   }
   img {
     display: block;
-    height: 3rem;
     margin: auto;
-    width: 3rem;
   }
   .details {
     border-left: 2px solid currentColor;
