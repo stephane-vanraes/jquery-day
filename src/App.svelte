@@ -23,15 +23,16 @@
 
 <Header />
 
-<section>
-    <h2>What is JQuery Day ?</h2>
-    <p>JQuery Day marks the day at which a popular library becomes as old as JQuery was the day the library is released.  This is calculated by taking the release date, figuring out how many days passed since JQuery's release ({format($jquery.date)}) and adding it again giving us <strong>Jquery Day</strong>.</p>
-</section>
+<main>
+    <section>
+        <h2>What is JQuery Day ?</h2>
+        <p>JQuery Day marks the day at which a popular library becomes as old as JQuery was the day the library is released.  This is calculated by taking the release date, figuring out how many days passed since JQuery's release ({format($jquery.date)}) and adding it again giving us <strong>Jquery Day</strong>.</p>
+    </section>
 
-<Grid>
-    {#each $libs as lib (lib.name)}
-        <Library {...lib} />
-    {/each}
-</Grid>
-
+    <Grid>
+        {#each $libs as lib (lib.name)}
+            <Library {...lib} />
+        {/each}
+    </Grid>
+</main>
 <Footer />
