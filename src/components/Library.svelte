@@ -6,8 +6,6 @@
   export let date = new Date();
   export let src = "";
 
-  $: console.log(name, date, src);
-
   $: current = Math.round((Date.now() - date.getTime()) / (1000 * 3600 * 24));
   $: jdays = Math.round(
     (date.getTime() - $jquery.date.getTime()) / (1000 * 3600 * 24)
