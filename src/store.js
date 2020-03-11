@@ -1,9 +1,20 @@
-import { readable } from "svelte/store";
+import { get, readable, writable } from "svelte/store";
 
 export const jquery = readable({
   name: "JQuery",
   date: new Date(2006, 7, 26)
 });
+
+export const reference = (() => {
+  const { subscribe, update } = writable(get(jquery));
+
+  const set = (val) => update(old => old === val ? get(jquery) : val);
+
+  return {
+    set,
+    subscribe
+  }
+})();
 
 const react = {
   name: "React",

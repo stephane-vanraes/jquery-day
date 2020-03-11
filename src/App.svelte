@@ -3,7 +3,7 @@
     import Header from './components/Header.svelte';
     import Grid from './components/Grid.svelte';
     import Library from './components/Library.svelte';
-    import { jquery, libs } from './store.js';
+    import { jquery, libs, reference } from './store.js';
     import { format } from './utils/dateFormatter.js';
 </script>
 
@@ -29,9 +29,13 @@
         <p>JQuery Day marks the day at which a popular library becomes as old as JQuery was the day the library is released.  This is calculated by taking the release date, figuring out how many days passed since JQuery's release ({format($jquery.date)}) and adding it again giving us <strong>Jquery Day</strong>.</p>
     </section>
 
+    <section>
+        <p>Click on any of the libraries to set it as the new reference libary. Clicking the same library again will reset to JQuery.</p>
+    </section>
+
     <Grid>
         {#each $libs as lib (lib.name)}
-            <Library {...lib} />
+            <Library {...lib} on:click="{() => $reference = lib}" />
         {/each}
     </Grid>
     

@@ -1,19 +1,19 @@
 <script>
   import { format } from "../utils/dateFormatter.js";
-  import { jquery } from "../store.js";
+  import { dayCalc } from "../utils/dayCalc.js";
+  import { reference } from "../store.js";
 
   export let name = "";
   export let date = new Date();
   export let src = "";
 
   $: current = Math.round((Date.now() - date.getTime()) / (1000 * 3600 * 24));
-  $: jdays = Math.round(
-    (date.getTime() - $jquery.date.getTime()) / (1000 * 3600 * 24)
-  );
-  $: jdate = new Date(date);
-  $: jdate.setDate(date.getDate() + jdays);
+  $: jdate = dayCalc(date, $reference.date);
 
   $: past = jdate < Date.now();
+  $: older = date < $reference.date;
+
+  $: console.log($reference.date);
 </script>
 
 <style>
@@ -59,9 +59,31 @@
   .past .img {
     color: black;
   }
+
+  .older {
+    background-color: var(--secondary-dark);
+    box-shadow: none;
+    color: black;
+  }
+  .older .img {
+    color: black;
+  }  
+  .reference {
+    background-color: var(--primary-light);
+    box-shadow: 0px 5px 2.5px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+  }
+  .reference .img {
+    color: black;
+  }
 </style>
 
-<div class="lib" class:past>
+<div 
+  class="lib" 
+  class:older
+  class:past
+  class:reference={name === $reference.name}
+  on:click>
   <div class="img">
     <img src="{src}" alt="" />
     <h3>{name}</h3>
@@ -69,7 +91,7 @@
   <div class="details">
     <span>Released</span>
     <span>{format(date)}</span>
-    <span>JQuery Day</span>
+    <span>{$reference.name} Day</span>
     <span>{format(jdate)}</span>
   </div>
 </div>
