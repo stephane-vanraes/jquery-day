@@ -76,6 +76,15 @@
   .reference .img {
     color: black;
   }
+
+  .na {
+    background-color: var(--accent);
+    border-radius: .25rem;
+    color: white;
+    padding: .5rem 1rem;
+    transform: rotate(-10deg) translate(.5rem, .5rem);
+    width: 7ch;
+  }
 </style>
 
 <div 
@@ -91,7 +100,11 @@
   <div class="details">
     <span>Released</span>
     <span>{format(date)}</span>
-    <span>{$reference.name} Day</span>
-    <span>{format(jdate)}</span>
+    {#if date > $reference.date}
+      <span>{$reference.name} Day</span>
+      <span>{format(jdate)}</span>
+    {:else if date < $reference.date}
+      <span class="na">N/A</span>
+    {/if}
   </div>
 </div>
